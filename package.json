@@ -1,0 +1,16 @@
+{
+  "name": "requirejs_template",
+  "version": "0.0.1",
+  "description": "",
+  "main": "grunt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "qsat",
+  "devDependencies": {
+    "grunt-requirejs": "git://github.com/asciidisco/grunt-requirejs.git",
+    "grunt-contrib-coffee":"*",
+    "grunt-coffeelint": "*"
+  }
+}

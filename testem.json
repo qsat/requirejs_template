@@ -1,0 +1,11 @@
+{
+	"framework" : "jasmine",
+	"routes" : {
+	  "/js" : "htdocs/js"
+	},
+	"src_files" : [
+		"htdocs/js/lib/require.js",
+		"htdocs/js/bootstrap.js",
+		"specs/js/**/*.js"
+	]
+}
