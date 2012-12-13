@@ -1,2 +1,4 @@
-*.js
+htdocs/js/
+specs/js/
+!htdocs/js/lib/
 node_modules/
