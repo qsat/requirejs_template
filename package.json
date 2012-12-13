@@ -10,8 +10,11 @@
   "author": "qsat",
   "devDependencies": {
     "grunt-requirejs": "git://github.com/asciidisco/grunt-requirejs.git",
-    "grunt-contrib-coffee":"*",
-    "grunt-contrib-copy":"*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-copy": "*",
     "grunt-coffeelint": "*"
+  },
+  "dependencies": {
+    "grunt-requirejs": "~0.3.1"
   }
 }
