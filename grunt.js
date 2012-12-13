@@ -64,5 +64,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');
 /*   grunt.registerTask('default', 'coffeelint coffee'); */
-  grunt.registerTask('default', 'coffeelint coffee copy');
+  grunt.registerTask('first', 'coffeelint coffee copy');
+  grunt.registerTask('default', 'coffeelint coffee requirejs');
 };
