@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       files: ['coffee/**/*.coffee', 'specs/coffee/**/*.coffee'],
-      tasks: 'coffeelint coffee'
+      tasks: 'coffeelint coffeei eco_amd'
     },
     coffeelint: {
       files: ['coffee/**/*.coffee']
@@ -23,6 +23,16 @@ module.exports = function(grunt) {
           bare:true,
           basePath: '/coffee'
         }
+      }
+    },
+    eco_amd: {
+      compile: {
+        files: {
+          'htdocs/js/tmpl/*.js':'coffee/tmpl/**/*.eco'
+        }
+      },
+      options: {
+        //basePath: '/coffee'
       }
     },
     copy: {
@@ -59,11 +69,12 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-eco-amd');
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');
 /*   grunt.registerTask('default', 'coffeelint coffee'); */
   grunt.registerTask('first', 'coffeelint coffee copy');
-  grunt.registerTask('default', 'coffeelint coffee requirejs');
+  grunt.registerTask('default', 'coffeelint coffee eco_amd requirejs');
 };
