@@ -1,8 +1,8 @@
 requirejs.config
   baseUrl: 'js',
   paths:
-    zepto: "lib/zepto",
-    underscore: "lib/lodash",
+    zepto: "lib/zepto"
+    underscore: "lib/lodash"
     backbone: "lib/backbone"
     deferred: "lib/deferred"
   shim:
@@ -15,9 +15,9 @@ requirejs.config
       exports: "Deferred"
 
 
-# require [
-#   'zepto', 'app'
-#   ],
-#   ($, App) ->
-#     $ ->
-#       new App()
+ require [
+   'zepto', 'app'
+   ],
+   ($, App) ->
+     $ ->
+       App()

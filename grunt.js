@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       files: ['coffee/**/*.coffee', 'specs/coffee/**/*.coffee'],
-      tasks: 'coffeelint coffeei eco_amd'
+      tasks: 'coffeelint coffee eco_amd'
     },
     coffeelint: {
       files: ['coffee/**/*.coffee']
@@ -30,9 +30,6 @@ module.exports = function(grunt) {
         files: {
           'htdocs/js/tmpl/*.js':'coffee/tmpl/**/*.eco'
         }
-      },
-      options: {
-        //basePath: '/coffee'
       }
     },
     copy: {
