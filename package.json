@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "grunt-requirejs": "~0.3.1",
-    "grunt-eco-amd": "~0.1.2"
+    "grunt-eco-amd": "~0.1.2",
+    "grunt-contrib-stylus": "~0.3.1"
   }
 }

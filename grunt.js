@@ -7,28 +7,47 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     watch: {
-      files: ['coffee/**/*.coffee', 'specs/coffee/**/*.coffee'],
-      tasks: 'coffeelint coffee eco_amd'
+      files: ['src/coffee/**/*.coffee', 'specs/coffee/**/*.coffee'],
+      tasks: 'stylus coffeelint coffee eco_amd'
+    },
+    server: {
+      port: 8001,
+      base: './htdocs'
+    },
+    stylus: {
+      app: {
+        src : ['src/stylus/*.styl'],
+        dest: 'htdocs/css/style.css'
+      }
     },
     coffeelint: {
-      files: ['coffee/**/*.coffee']
+      files: ['src/coffee/**/*.coffee']
     },
     coffee: {
       compile: {
         files: {
-          'htdocs/js/*.js': ['coffee/**/*.coffee'],
-          'specs/js/*.js': ['specs/coffee/**/*.coffee']
+          'htdocs/js/*.js': ['src/coffee/**/*.coffee']
+          //'js/*.js': ['specs/coffee/**/*.coffee']
         },
         options: {
           bare:true,
-          basePath: '/coffee'
+          basePath: '/src/coffee'
+        }
+      },
+      compileTest: {
+        files: {
+          'specs/js/*.js': ['specs/coffee/**/*.coffee']
+        },
+        options: {
+          bare:true
+          //basePath: '/src/coffee'
         }
       }
     },
     eco_amd: {
       compile: {
         files: {
-          'htdocs/js/tmpl/*.js':'coffee/tmpl/**/*.eco'
+          'htdocs/js/tmpl/*.js':'src/coffee/tmpl/**/*.eco'
         }
       }
     },
@@ -70,8 +89,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-jasmine-runner');
 /*   grunt.registerTask('default', 'coffeelint coffee'); */
   grunt.registerTask('first', 'coffeelint coffee copy');
-  grunt.registerTask('default', 'coffeelint coffee eco_amd requirejs');
+  grunt.registerTask('default', 'stylus coffeelint coffee eco_amd requirejs');
 };
